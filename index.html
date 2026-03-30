@@ -25,12 +25,13 @@
   
   video {
     transform: rotate(90deg);
-    transform-origin: center center;
-    max-width: 90vh;
-    max-height: 90vw;
+    transform-origin: center;
+    width: 100vh;
+    height: 100vw;
+    max-width: 100vh;
+    max-height: 100vw;
     object-fit: contain;
     display: block;
-    margin: auto;
   }
   
   #debug {
@@ -48,7 +49,6 @@
 </style>
 </head>
 <body>
-  
 <div id="wrapper">
   <video id="player" controls loop playsinline webkit-playsinline muted>
     <source src="menu_2.mp4" type="video/mp4">
