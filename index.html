@@ -8,10 +8,12 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     html, body {
-      width: 100%;
-      height: 100%;
-      background: #000;
-      overflow: hidden;
+     width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;        /* already have this */
+  position: fixed;         /* ADD THIS */
+  touch-action: none;      /* ADD THIS — disables scroll on Fire Stick */
     }
 
     .wrapper {
@@ -40,6 +42,8 @@
   </div>
 
   <script>
+
+
     const v = document.getElementById('player');
 
     function tryPlay() {
@@ -52,6 +56,13 @@
     v.addEventListener('loadeddata', tryPlay);
     v.addEventListener('canplaythrough', tryPlay);
     setTimeout(tryPlay, 2000);
+
+    // Add fullscreen here
+    setTimeout(() => {
+      document.documentElement.requestFullscreen && 
+      document.documentElement.requestFullscreen();
+    }, 1000);
+
   </script>
 </body>
 </html>
