@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Video Display</title>
+  <title>McKenzie's Kitchen</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     html, body {
       width: 100%;
       height: 100%;
       background: #000;
       overflow: hidden;
     }
+
     .wrapper {
       position: fixed;
       top: 50%;
@@ -21,6 +23,7 @@
       transform: translate(-50%, -50%) rotate(90deg);
       background: #000;
     }
+
     video {
       width: 100%;
       height: 100%;
@@ -39,10 +42,8 @@
   <script>
     const v = document.getElementById('player');
 
-    // Try to play immediately
     function tryPlay() {
       v.play().catch(() => {
-        // Silk sometimes needs a user gesture — tap anywhere to start
         document.addEventListener('click', () => v.play(), { once: true });
         document.addEventListener('touchstart', () => v.play(), { once: true });
       });
@@ -50,14 +51,7 @@
 
     v.addEventListener('loadeddata', tryPlay);
     v.addEventListener('canplaythrough', tryPlay);
-
-    // Fallback: try after 2 seconds
     setTimeout(tryPlay, 2000);
-
-    // Log errors to title so you can see on screen
-    v.addEventListener('error', () => {
-      document.title = 'ERR: ' + (v.error ? v.error.code : '?');
-    });
   </script>
 </body>
 </html>
